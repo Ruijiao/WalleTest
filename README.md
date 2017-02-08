@@ -21,3 +21,11 @@ sourceSets {
 </code>
 </pre>
  #### 每个欢迎图放在不同的文件夹，每打一个包，修改一下这个欢迎图的路径
+ 
+## 用法
+### 1、打一个渠道
+ gradlew clean assembleRelease -PchannelList=baidu
+### 2、打多个渠道,用逗号分隔
+ gradlew clean assembleRelease -PchannelList=baidu,360
+### 3、批量打包，<a href="https://github.com/Ruijiao/WalleTest/blob/master/channel_all">批量打包实例文档 channel_all</a>
+ gradlew clean assembleRelease -PchannelFile=channel_all
