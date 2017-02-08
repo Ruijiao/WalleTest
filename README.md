@@ -9,5 +9,15 @@
 #### 需求二、不同渠道换不同的欢迎图
 ##### 由于欢迎图片都要编译在apk中，在channelinfo中指明用那张图，欢迎页通过获取channelinfo中的图片再去加载对应的图
 #### 解决办法：
-
+<pre>
+<code>
+sourceSets {
+        main {
+            res.srcDirs = ['src\\main\\res', 'src\\main\\res_normal']
+//            res.srcDirs = ['src\\main\\res','src\\main\\res_360']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+</code>
+</pre>
  #### 每个欢迎图放在不同的文件夹，每打一个包，修改一下这个欢迎图的路径
