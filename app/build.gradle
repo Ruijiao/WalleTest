@@ -1,0 +1,132 @@
+apply plugin: 'com.android.application'
+apply plugin: 'walle'
+
+dependencies {
+    compile 'com.meituan.android.walle:library:1.0.3'
+}
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "test.com.walletest"
+        minSdkVersion 11
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+        // dex突破65535的限制
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        MainXiangha {
+            keyAlias '111'
+            keyPassword '222'
+            storeFile file('F:/XH_Work/WorkSpace/Project/keystore/123.keystore')
+            storePassword '333'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.MainXiangha
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.MainXiangha
+        }
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs = ['src\\main\\res', 'src\\main\\res_normal']
+//            res.srcDirs = ['src\\main\\res','src\\main\\res_360']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            //这里修改apk文件名
+//            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                if(variant.buildType.name.equals('release')){
+//                    def fileName = output.outputFile.name.replace("app-release-","")
+//                    output.outputFile = new File(outputFile.parent+"/ceshi", fileName)
+////                    //测试版本
+////                    if(output.outputFile.name.contains("ceshi")){
+////                        def fileName = "ceshi_${defaultConfig.versionName}.apk"
+////                        output.outputFile = new File(outputFile.parent+"/ceshi", fileName)
+//////                        output.outputFile = new File(
+//////                                output.outputFile.parent,
+//////                                output.outputFile.name.replace(".apk", "-${variant.versionName}666.apk"))
+////                    }else{
+////                        def fileName = "${output.outputFile.name}"
+////                        if(fileName.contains("xiangha")){
+////                            fileName = fileName.replaceFirst("xiangha","XiangHa")
+////                            if(fileName.contains("_ziapp"))
+////                                output.outputFile = new File(outputFile.parent+"/子App倒流", fileName)
+////                            else
+////                                output.outputFile = new File(outputFile.parent+"/自己网址", fileName)
+////                        }else{
+////                            fileName = "XiangHa_" + fileName;
+////                            output.outputFile = new File(outputFile.parent+"/第松", fileName)
+////                        }
+////                    }
+//
+//                }else{
+//                    output.outputFile = new File(
+//                            output.outputFile.parent,
+//                            output.outputFile.name.replace(".apk", "-${variant.versionName}222.apk")
+//                    )
+//                }
+//            }
+//        }
+//    }
+//        //修改打包的apk文件名
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            //这里修改apk文件名
+//            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                if(variant.buildType.name.equals('release')){
+//                    //测试版本
+//                    if(variant.productFlavors[0].name.equals("ceshi")){
+//                        def fileName = "${variant.productFlavors[0].name}.${defaultConfig.versionName}.apk"
+//                        output.outputFile = new File(outputFile.parent+"/ceshi", fileName)
+//                    }
+//                    //正式版本
+//                    else{
+//                        def fileName = "${variant.productFlavors[0].name}.apk"
+//                        if(fileName.contains("xiangha")){
+//                            fileName = fileName.replaceFirst("xiangha","XiangHa")
+//                            if(fileName.contains("_ziapp"))
+//                                output.outputFile = new File(outputFile.parent+"/子App倒流", fileName)
+//                            else
+//                                output.outputFile = new File(outputFile.parent+"/自己网址", fileName)
+//                        }else{
+//                            fileName = "XiangHa_" + fileName;
+//                            output.outputFile = new File(outputFile.parent+"/第松", fileName)
+//                        }
+//                    }
+//                }
+//                //调试版本
+//                else{
+//                    def fileName = "${variant.productFlavors[0].name}.${defaultConfig.versionName}_debug.apk"
+//                    output.outputFile = new File(outputFile.parent+"/ceshi", fileName)
+//                }
+//            }
+//        }
+//    }
+}
+
+
+

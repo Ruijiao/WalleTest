@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimary">#3F51B5</item>-->
+        <!--<item name="colorPrimaryDark">#3F51B5</item>-->
+        <!--<item name="colorAccent">#FF4081</item>-->
+    </style>
+
+</resources>
