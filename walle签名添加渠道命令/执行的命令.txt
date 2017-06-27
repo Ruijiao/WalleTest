@@ -1,0 +1,2 @@
+在cmd中进入该下载的资源文件夹，运行以下命令
+python channel.py test

@@ -29,3 +29,12 @@ sourceSets {
  gradlew clean assembleRelease -PchannelList=baidu,360
 ### 3、批量打包，<a href="https://github.com/Ruijiao/WalleTest/blob/master/channel_all">批量打包实例文档 channel_all</a>
  gradlew clean assembleRelease -PchannelFile=channel_all
+
+##### 需求三 一些平台需要加固，加固后则walle的渠道就丢失了<加固的方式把walle的渠道文件删除了>
+##### 解决办法：
+加固后，通过脚本重新进行签名与添加渠道
+第一步：安装python工具
+第二步：下载我demo中所需的工具与脚本，文件夹名：walle签名添加渠道命令
+第三步：在cmd中进入下载的资源文件夹，运行adb命令
+test.apk是加固后的apk；test.jks是你的签名文件；channel是要签名后出哪几个渠道包，执行命令.txt记录了要执行的adb命令；
+channel.py是编写的python脚本；其他为用到的工具
